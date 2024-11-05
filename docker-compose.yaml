@@ -7,9 +7,9 @@ services:
     container_name: openvoice2
     restart: unless-stopped
     ports:
-      - "8888:8888" 
-    volumes:
-      - .:/app
+      - "8880:8880" 
+    # volumes:
+      # - .:/app
     environment:
       - PYTHONUNBUFFERED=1
       # Workouround to work with AMD RX6600 GPU
@@ -28,4 +28,4 @@ services:
       - video
     ipc: host
     shm_size: 8G
-    # command: ["python3", "-m", "melo.app", "--host", "0.0.0.0", "--port", "8888"]
+    command: ["python3", "app.py", "--host", "0.0.0.0", "--port", "8880"]
